@@ -10,8 +10,8 @@
             <div id="foot2" :class="classname"></div>
         </div>
 
-        <button @click="addKlick">switch</button>
-        <p>{{ classname }}</p>  <!-- the getter lets me access it like a data prop of the component "Led" -->
+        <button @click="change">switch</button>
+        <p>{{ classname }}</p> 
         
 
   </div>
@@ -28,10 +28,14 @@ export default {
   },
   //methods have to be outside of data()
   methods: {
-        addKlick: () => {
-		console.log(this.classname)
-        this.classname = 'lightRed'
-		console.log(this.classname)
+        /*addKlick: () => {		thats an anonymous function and i cant get acces to this... better like the following:*/
+		change() {
+			if(this.classname === 'red'){
+        		this.classname = 'lightRed';
+			} else {
+				this.classname = 'red';
+			}
+		
         }
   	  }
  
@@ -39,7 +43,7 @@ export default {
   }
 
 
-
+/*
   const spacebroClient = require('spacebro-client')
 
 spacebroClient.connect('spacebro.space', 3333, {
@@ -67,7 +71,7 @@ spacebroClient.on('down', function() {
 setTimeout(function(){
 	spacebroClient.emit('connected')
 }, 1000);
-
+*/
 
 </script>
 
